@@ -3,10 +3,38 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Card, CardContent } from "@/components/ui/card";
 import { processes, strengths } from "@/lib/about";
-import { APP_NAME } from "@/lib/constants";
+import { APP_DESCRIPTION, APP_NAME } from "@/lib/constants";
 
 export const Route = createFileRoute("/tentang")({
     component: TentangRoute,
+    head: () => ({
+        meta: [
+            {
+                title: `${APP_NAME} - Tentang Kami`,
+            },
+            {
+                name: "description",
+                content: APP_DESCRIPTION,
+            },
+            // Open Graph
+            { property: "og:title", content: APP_NAME },
+            { property: "og:description", content: APP_DESCRIPTION },
+            { property: "og:image", content: "/logo.webp" },
+            { property: "og:type", content: "article" },
+
+            // Twitter Card
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: APP_NAME },
+            { name: "twitter:description", content: APP_DESCRIPTION },
+            { name: "twitter:image", content: "/logo.webp" },
+        ],
+        links: [
+            {
+                rel: "icon",
+                href: "/favicon.ico",
+            },
+        ],
+    }),
 });
 
 function TentangRoute() {

@@ -10,12 +10,41 @@ import { Button } from "@/components/ui/button";
 import { ValuePropCard } from "@/components/value-prop-card";
 import { WhatsAppCTA } from "@/components/whatsapp-cta";
 import { categories } from "@/lib/categories";
+import { APP_DESCRIPTION, APP_NAME } from "@/lib/constants";
 import { faqs } from "@/lib/faqs";
 import { getBestSellers } from "@/lib/products";
 import { valueProps } from "@/lib/value-props";
 
 export const Route = createFileRoute("/")({
     component: HomeRoute,
+    head: () => ({
+        meta: [
+            {
+                title: `${APP_NAME} - Papan Bunga Berkualitas untuk Setiap Momen`,
+            },
+            {
+                name: "description",
+                content: APP_DESCRIPTION,
+            },
+            // Open Graph
+            { property: "og:title", content: APP_NAME },
+            { property: "og:description", content: APP_DESCRIPTION },
+            { property: "og:image", content: "/logo.webp" },
+            { property: "og:type", content: "article" },
+
+            // Twitter Card
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: APP_NAME },
+            { name: "twitter:description", content: APP_DESCRIPTION },
+            { name: "twitter:image", content: "/logo.webp" },
+        ],
+        links: [
+            {
+                rel: "icon",
+                href: "/favicon.ico",
+            },
+        ],
+    }),
 });
 
 function HomeRoute() {

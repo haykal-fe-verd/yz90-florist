@@ -11,11 +11,39 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { WhatsAppCTA } from "@/components/whatsapp-cta";
-import { APP_ADDRESS, APP_EMAIL, APP_PHONE } from "@/lib/constants";
+import { APP_ADDRESS, APP_DESCRIPTION, APP_EMAIL, APP_NAME, APP_PHONE } from "@/lib/constants";
 import { contactSchema } from "@/schemas/contact-schema";
 
 export const Route = createFileRoute("/kontak")({
     component: KontakRoute,
+    head: () => ({
+        meta: [
+            {
+                title: `${APP_NAME} - Kontak Kami`,
+            },
+            {
+                name: "description",
+                content: APP_DESCRIPTION,
+            },
+            // Open Graph
+            { property: "og:title", content: APP_NAME },
+            { property: "og:description", content: APP_DESCRIPTION },
+            { property: "og:image", content: "/logo.webp" },
+            { property: "og:type", content: "article" },
+
+            // Twitter Card
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: APP_NAME },
+            { name: "twitter:description", content: APP_DESCRIPTION },
+            { name: "twitter:image", content: "/logo.webp" },
+        ],
+        links: [
+            {
+                rel: "icon",
+                href: "/favicon.ico",
+            },
+        ],
+    }),
 });
 
 function KontakRoute() {

@@ -21,12 +21,44 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { WhatsAppCTA } from "@/components/whatsapp-cta";
 import { cities, getCityById } from "@/lib/cities";
-import { DELIVERY_TIMES } from "@/lib/constants";
+import { APP_DESCRIPTION, APP_NAME, DELIVERY_TIMES } from "@/lib/constants";
 import { getProductBySlug, getRelatedProducts } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/katalog/$slug")({
     component: KatalogDetailRoute,
+    loader: async ({ params }) => {
+        const product = await getProductBySlug(params.slug);
+        return { product };
+    },
+    head: ({ loaderData }) => ({
+        meta: [
+            {
+                title: `${APP_NAME} - ${loaderData?.product?.name || "Produk Tidak Ditemukan"}`,
+            },
+            {
+                name: "description",
+                content: loaderData?.product?.description || APP_DESCRIPTION,
+            },
+            // Open Graph
+            { property: "og:title", content: loaderData?.product?.name || APP_NAME },
+            { property: "og:description", content: loaderData?.product?.description || APP_DESCRIPTION },
+            { property: "og:image", content: loaderData?.product ? loaderData.product.images[0] : "/logo.webp" },
+            { property: "og:type", content: "article" },
+
+            // Twitter Card
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: loaderData?.product?.name || APP_NAME },
+            { name: "twitter:description", content: loaderData?.product?.description || APP_DESCRIPTION },
+            { name: "twitter:image", content: loaderData?.product ? loaderData.product.images[0] : "/logo.webp" },
+        ],
+        links: [
+            {
+                rel: "icon",
+                href: "/favicon.ico",
+            },
+        ],
+    }),
 });
 
 function KatalogDetailRoute() {

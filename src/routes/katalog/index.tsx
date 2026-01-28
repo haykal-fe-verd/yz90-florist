@@ -15,7 +15,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Slider } from "@/components/ui/slider";
 import { categories } from "@/lib/categories";
 import { cities } from "@/lib/cities";
-import { ITEMS_PER_PAGE, SIZES, SORT_OPTIONS } from "@/lib/constants";
+import { APP_DESCRIPTION, APP_NAME, ITEMS_PER_PAGE, SIZES, SORT_OPTIONS } from "@/lib/constants";
 import { products } from "@/lib/products";
 import { type KatalogSearchParams, katalogSearchParamsSchema } from "@/schemas/katalog-schema";
 
@@ -36,6 +36,34 @@ export const Route = createFileRoute("/katalog/")({
     search: {
         middlewares: [stripSearchParams(defaultValues)],
     },
+    head: () => ({
+        meta: [
+            {
+                title: `${APP_NAME} - Katalog Produk`,
+            },
+            {
+                name: "description",
+                content: APP_DESCRIPTION,
+            },
+            // Open Graph
+            { property: "og:title", content: APP_NAME },
+            { property: "og:description", content: APP_DESCRIPTION },
+            { property: "og:image", content: "/logo.webp" },
+            { property: "og:type", content: "article" },
+
+            // Twitter Card
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: APP_NAME },
+            { name: "twitter:description", content: APP_DESCRIPTION },
+            { name: "twitter:image", content: "/logo.webp" },
+        ],
+        links: [
+            {
+                rel: "icon",
+                href: "/favicon.ico",
+            },
+        ],
+    }),
 });
 
 function KatalogRoute() {
