@@ -1,0 +1,111 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Build outputs
+dist
+dist-ssr
+build
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage
+*.lcov
+.nyc_output
+.jest-cache
+
+# Cache directories
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+.turbo
+
+# Temporary files
+tmp
+temp
+*.tmp
+*.temp
+.cache/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE/Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.fleet
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+*~
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/chrome
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Storybook
+storybook-static
+
+# Miscellaneous
+.serverless
+.fusebox
+.dynamodb
+.tern-port
+.vscode-test
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
