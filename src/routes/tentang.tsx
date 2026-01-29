@@ -39,7 +39,7 @@ export const Route = createFileRoute("/tentang")({
 
 function TentangRoute() {
     return (
-        <div>
+        <div className="px-2 md:px-0">
             {/* Hero Section */}
             <section className="bg-linear-to-br from-rose-soft via-background to-background py-16 lg:py-24">
                 <div className="container mx-auto">

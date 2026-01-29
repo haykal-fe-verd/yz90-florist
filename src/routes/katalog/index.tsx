@@ -178,7 +178,7 @@ function KatalogRoute() {
         selectedCity;
 
     const FilterContent = () => (
-        <div className="space-y-6">
+        <div className="space-y-6 px-2 md:px-0">
             {/* Categories */}
             <div>
                 <Label className="text-base font-semibold">Kategori</Label>

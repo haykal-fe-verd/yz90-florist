@@ -98,7 +98,7 @@ function KatalogDetailRoute() {
 
     return (
         <div>
-            <div className="container mx-auto py-8">
+            <div className="container mx-auto py-8 px-2 md:px-0">
                 {/* Breadcrumb */}
                 <nav className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
                     <Link to="/" className="hover:text-primary">
