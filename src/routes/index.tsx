@@ -51,7 +51,7 @@ function HomeRoute() {
     const bestSellers = getBestSellers();
 
     return (
-        <div>
+        <div className="px-2 md:px-0">
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-linear-to-br from-rose-soft via-background to-background py-20 lg:py-32">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522057384400-681b421cfebc?w=1920&h=1080&fit=crop')] bg-cover bg-center opacity-5" />

@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Flower2, Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { WhatsAppCTA } from "@/components/whatsapp-cta";
 import { APP_NAME } from "@/lib/constants";
 import { navigations } from "@/lib/navigations";
@@ -23,7 +23,7 @@ export function Navbar() {
 
     return (
         <header
-            className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+            className={`sticky top-0 z-50 w-full transition-all duration-300 px-2 md:px-0 ${
                 isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm border-b" : "bg-background"
             }`}>
             <div className="container mx-auto">
@@ -84,14 +84,9 @@ export function Navbar() {
                                             to="/"
                                             className="flex items-center gap-2 text-lg font-bold"
                                             onClick={() => setIsOpen(false)}>
-                                            <Flower2 className="h-6 w-6 text-primary" />
+                                            <img src="/logo.webp" alt={APP_NAME} className="h-10 w-10" />
                                             {APP_NAME}
                                         </Link>
-                                        <SheetClose asChild>
-                                            <Button variant="ghost" size="icon">
-                                                <X className="h-5 w-5" />
-                                            </Button>
-                                        </SheetClose>
                                     </div>
 
                                     {/* Mobile Links */}
